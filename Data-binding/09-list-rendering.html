@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Rendering</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="post in posts" :key="post.id">{{ post.title }}
+                <ul>
+                    <li>{{ post.body }}</li>
+                    <li>{{ post.bodyTwo }}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                posts: [
+                    { id: 1, title: 'Post 1', body: 'Post 1 has amazing content!', bodyTwo: 'oighos;hga;ghasdgsdaiogbsdnoivhaoervhasiocngviouaghaosid' },
+                    { id: 2, title: 'Post 2', body: 'Post 2 has amazing content!', bodyTwo: 'oighos;hga;ghasdgsdaiogbsdnoivhaoervhasiocngviouaghaosid' },
+                    { id: 3, title: 'Post 3', body: 'Post 3 has amazing content!', bodyTwo: 'oighos;hga;ghasdgsdaiogbsdnoivhaoervhasiocngviouaghaosid' },
+                    { id: 4, title: 'Post 4', body: 'Post 4 has amazing content!', bodyTwo: 'oighos;hga;ghasdgsdaiogbsdnoivhaoervhasiocngviouaghaosid' },
+                    { id: 5, title: 'Post 5', body: 'Post 5 has amazing content!', bodyTwo: 'oighos;hga;ghasdgsdaiogbsdnoivhaoervhasiocngviouaghaosid' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

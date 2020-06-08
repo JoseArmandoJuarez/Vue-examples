@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two way data binding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+    
+    <div class="container">
+        <div id="app">
+            <form action="">
+                <div class="col-sm-6 m-auto pt-3">
+                    <input v-model="message" type="text" class="form-control" maxlength="20" placeholder="Type something...">
+                </div>
+                <h2 class="text-center font-italic">{{ message }}</h2>
+            
+                <fieldset class="form-group">
+                    <legend>Radio Buttons</legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadio1" value="Option 1">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis deleniti eius neque illo doloremque.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadio2" value="Option 2">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis deleniti eius neque illo doloremque.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input v-model="options" type="checkbox" class="form-check-input" name="optionRadio3" value="Option 3">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis deleniti eius neque illo doloremque.
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <p>You selected {{ options.join(', ') }}</p>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                options: [],
+                message: ''
+            }
+        })
+    </script>
+
+
+</body>
+</html>

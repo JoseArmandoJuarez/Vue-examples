@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String interpolation</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h1>{{ number + 10 }}</h1>
+        <h1>{{ isActive ? 'is Active' : 'is NOT Active' }}</h1>
+        <h1>{{ message.split('').reverse('').join('') }}</h1>
+    </div>
+
+    <!-- A CDN to use Vue in your project -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // Vue instance
+        let vm = new Vue({
+            // reference / hook
+            el: '#app',
+            // data you want to display
+            data: {
+                message: 'Hello World',
+                number : 10,
+                isActive: false
+            }
+        })
+    </script>
+
+
+</body>
+</html>

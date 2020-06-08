@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesting Components</title>
+</head>
+<body>
+
+    <div id="app">
+        <posts></posts>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('posts', {
+
+            template: `
+                <div>
+                    <ul>
+                        <post v-for="post in posts" :key="post.id">{{ post.title }}</post>
+                    </ul>
+                </div>
+            `,
+
+            data() {
+                return {
+                    posts: [
+                        {id: 1, title: 'Post 1'},
+                        {id: 2, title: 'Post 2'},
+                        {id: 3, title: 'Post 3'},
+                        {id: 4, title: 'Post 4'},
+                        {id: 5, title: 'Post 5'},
+                        {id: 6, title: 'Post 6'}
+                    ]
+                }
+            },
+            
+            methods: {
+            }
+        });
+
+        Vue.component('post', {
+            template: `
+                <!-- 
+                    slot can contain any template code.
+                    A predefinde element ot tag in vue.js to define any data that goes in between the componenet.
+                -->
+                
+                <li><slot></slot></li>
+
+                <!-- <li>fasdhfgoasdhfasd</li> -->
+            `
+        });
+
+        let vm = new Vue({
+            el: '#app',
+        })
+    </script>
+
+</body>
+</html>

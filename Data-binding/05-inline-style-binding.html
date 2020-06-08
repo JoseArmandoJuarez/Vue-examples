@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline style binding</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+    <!--We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.-->
+
+    <div class="container pt-4">
+        <div id="app">
+            <!--Messy way-->
+            <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">{{ message }}</div>
+            <!--can pass an object and this is more clean-->
+            <div v-bind:style="styleObject">{{ message }}</div>
+            <!--Can pass two objects but the last object youe pass (styleObject2) will overwrite some of the styles from the first object-->
+            <div v-bind:style="[styleObject, styleObject2]">{{ message }}</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello',
+                activeColor: 'red',
+                fontSize: 30,
+                styleObject: {
+                    color: 'blue',
+                    fontSize: '50px',
+                    fontStyle: 'italic'
+                    
+                },
+                styleObject2: {
+                    color: 'orange',
+                    fontSize: '80px',
+                    
+                }
+            }
+        })
+    </script>
+
+
+</body>
+</html>

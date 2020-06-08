@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data binding</title>
+</head>
+<body>
+    
+    <div id="app">
+        <a v-bind:href="url">{{ url }}</a> <!--To be able to navigate to that site-->
+        <h1 v-bind:data="dynamicId">{{ dynamicId }}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: { 
+               url: "https://josejuarez.netlify.app/", // url to my portfolio
+               dynamicId: 20 
+            }
+        })
+    </script>
+
+
+</body>
+</html>

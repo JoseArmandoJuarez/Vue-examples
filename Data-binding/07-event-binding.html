@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Binding</title>
+</head>
+<body>
+    <div class="container pt-4">
+        <div id="app">
+
+            <button v-on:click="increaseFont">Increase Font</button>
+            <span>
+                <button v-on:click="decreaseFont">Decrease Font</button>
+                <button v-on:click="resetFont">Reset Font</button>
+                <button v-on:click="increaseByFive">Increase By 5</button>
+                <button v-on:click="decreaseByFive">Decrease By 5</button>
+            </span>
+
+            <div v-bind:style="{ fontSize: fontSize + 'px' }">{{ message }}</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello',
+                fontSize: 30
+            },
+            // Use the methos to create functions
+            methods: {
+                increaseFont: function () {
+                    this.fontSize++;
+                },
+                decreaseFont: function () {
+                    this.fontSize--;
+                },
+                resetFont: function () {
+                    this.fontSize = 30;
+                },
+                increaseByFive: function () {
+                    this.fontSize += 5;
+                },
+                decreaseByFive: function () {
+                    this.fontSize -= 5;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

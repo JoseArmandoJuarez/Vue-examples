@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+    <!--We can use the v-on directive to listen to DOM events and run some JavaScript when they’re triggered.-->
+
+    <div class="container pt-4">
+        <div id="app">
+            <button class="btn btn-lg btn-primary" v-on:click="number++" >Increase</button>
+            <h1>{{ number }}</h1>
+            <button class="btn btn-lg btn-primary" v-on:click="number--" >Decrease</button>
+        
+        
+            <!--.prevent prevents from the page to reload when the submit button is clicked-->
+            <form @submit.prevent="number++">
+                <button type="submit">SUBMIT</button> This button also increases number
+            </form>
+        
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World',
+                number : 0,
+            }
+        })
+    </script>
+
+
+</body>
+</html>

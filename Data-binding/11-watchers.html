@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watchers</title>
+</head>
+
+<body>
+
+    <div id="app">
+       <h1>Jose {{ isActive === 'active' ? 'is Active' : 'is NOT Active' }}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                isActive: 'not active'
+            },
+            watch: {
+                isActive: function(value){
+                    console.log("Sending and email - " + value);
+                    // in the console type - vm.isActive = 'active'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Templates</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+
+        <!-- Inline-template components must have exactly one child element.
+        So I can create a div and have multiple childs-->
+        <posts inline-template>
+            <div>
+                <h1 v-on:click="display">Hi</h1>
+                <h1 v-on:click="display">Hi</h1>
+            </div>
+        </posts>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // First parameter is the name of the component
+        Vue.component('posts', {
+            // data() {
+            //     return {
+            //     }
+            // },
+            methods: {
+                    display(){
+                        console.log('Hi');
+                    }
+                }
+        })
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello'
+            }
+        })
+    </script>
+
+</body>
+</html>
